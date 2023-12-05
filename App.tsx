@@ -8,13 +8,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import Nav from './screens/Nav';
 
 import { Routes } from './routes';
+import { ProductsContextContainer } from './contexts/productscontext';
 
 export default function App() {
   return (
     
     <NavigationContainer>
-      <Nav/>
-      <Routes />  
+      <ProductsContextContainer>
+        <Nav/>
+        <Routes />  
+      </ProductsContextContainer>
     </NavigationContainer>
 
   );

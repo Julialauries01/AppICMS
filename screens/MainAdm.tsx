@@ -1,25 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { View, Text, TouchableOpacity, FlatList, } from 'react-native'
 import server from '../api/server'
 import { IProductsDTO } from '../dtos/IProductsDTO'
 import ListProducts from './lisProducts'
 import { Icon } from "react-native-elements";
 import { useNavigation } from '@react-navigation/native'
+import { ProductContext } from '../contexts/productscontext'
 
 
 
 type CategoriaProps = 'celulares' | 'livros'
 
 
+
 export default function MainAdm() {
   const navigation = useNavigation();
+  
 
 
   const [ categoria, setCategoria] = useState<CategoriaProps>()
-  const [ product, setProduct ] = useState<IProductsDTO>({} as IProductsDTO)
   const [ products, setProducts ] = useState<IProductsDTO[]>([])
-  
+  const { product, handleSetProduct } = useContext(ProductContext)
+  const isAdm = true
+
+
   async function handleSetCategoria(categoria:CategoriaProps){ 
+
     try{
       const res = await server.get(`${categoria}`).then((res) => { setProducts(res.data) , setCategoria(categoria)})
 
@@ -29,17 +35,12 @@ export default function MainAdm() {
   }
   }
 
-  function changeProduct(id:string){
-    const product = products.filter(item => item.id === id)
-    if(product){
-      setProduct(product[0])
-    }
-  }
+ 
 
 
   useEffect(() => {
-    console.log(product)
-  }, [product,])
+    categoria && handleSetCategoria(categoria)
+  }, [product])
 
   function handleInsertProducts(){
   navigation.navigate('InsertProducts')
@@ -74,10 +75,9 @@ export default function MainAdm() {
 
       <FlatList 
         data={products}
-        renderItem={ ({item}) => < ListProducts product={item} changeProduct={changeProduct} /> } 
+        renderItem={ ({item}) => < ListProducts product={item} isAdm={true}  changeProduct={handleSetProduct} /> } 
         keyExtractor={item => item.id} 
         />
-      
     </View>
   )
 }

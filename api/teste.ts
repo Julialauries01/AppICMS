@@ -2,6 +2,7 @@ import axios from "axios";
 import { IProductsDTO } from "../dtos/IProductsDTO";
 import server from "./server";
 
+
 async function getIcmsProduct(product: IProductsDTO, imposto: string){
    console.log(product.categoria, imposto)
    try {
@@ -16,16 +17,40 @@ async function getIcmsProduct(product: IProductsDTO, imposto: string){
 
 }
 
-async function deleteItem(product: IProductsDTO) {
-    
+async function handleDeleteItem(product: IProductsDTO) {
    try {
-      const res = await axios.delete(`${product.categoria}/${product.id}`)
-      res && console.log(res.data)
+     const res = await server.delete(`${product.categoria}/${product.id}`);
+     return res.data; 
+   } catch (error) {
+     console.log(error);
+     throw error; 
    }
-   catch(error){
-     console.log(error)
-   }
-   
  }
 
-export { getIcmsProduct, deleteItem }
+ async function handleSetInsertNewProduct(product: IProductsDTO){
+   try {
+      const res = await server.post(`${product.categoria}/add`, product)
+      res && res.data
+   } catch(error){
+      console.log(error)
+   }
+ }
+
+ async function HandleEditProduct(product: IProductsDTO ) {
+   console.log(product)
+   try {
+     const res = await server.put(`${product.categoria}/editar/1`, product)
+     if (res) {
+       console.log('caiu aqui HANDLEEDITPRODUCT') 
+       return res.data
+     }
+   }
+   catch (error){
+     console.log('EDITAR caiu no erro')
+   }
+ }
+
+
+ 
+
+export { getIcmsProduct, handleDeleteItem, handleSetInsertNewProduct, HandleEditProduct}

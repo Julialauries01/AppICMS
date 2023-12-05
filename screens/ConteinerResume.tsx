@@ -19,7 +19,7 @@ export default  function ConteinerResume({ product, imposto}: ContainerResumePro
     if(product && imposto){
       try {
         const productSelected =  await getIcmsProduct(product,imposto).then(res => setTeste(res))
-        console.log('estranha',teste)
+        console.log('Iniciou',teste)
       } catch(error) {
         console.log(error)
       }

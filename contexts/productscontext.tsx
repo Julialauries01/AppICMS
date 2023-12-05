@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import { IProductsDTO } from '../dtos/IProductsDTO'
+import { handleDeleteItem } from '../api/teste'
 
 interface ContextProps {
    children: React.ReactNode
 }
 
 interface ProductProps {
-   user : string
-   getProduct: (category:string) => void
-   category: string
    product : IProductsDTO
    handleSetProduct: (product : any) => void
-   handleSetCategory: (categoria :  string) => void 
 }
 
+export const ProductContext = createContext({} as ProductProps)
 
 
-export function productscontext ({ children }:ContextProps){
-  return (
 
+export function ProductsContextContainer ({ children }:ContextProps) {
+   const [ product, setProduct ] = useState<any>()
 
+   function handleSetProduct(product:any){
+      setProduct(product)
+   }
+
+   return (
+      <ProductContext.Provider value={ { product, handleSetProduct} } >
+         {children}
+      </ProductContext.Provider>
    )
 }

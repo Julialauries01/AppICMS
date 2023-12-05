@@ -10,13 +10,13 @@ import ListProducts from './lisProducts'
 type CategoriaProps = 'celulares' | 'livros'
 export type StateProps = 'sao paulo' | 'santa catarina'
 
-
 export default function MainUser() {
 
   const [ categoria, setCategoria] = useState<CategoriaProps>()
   const [ product, setProduct ] = useState<IProductsDTO>({} as IProductsDTO)
   const [ products, setProducts ] = useState<IProductsDTO[]>([])
   const [ estado, setEstado] = useState<StateProps>()
+  const isAdm = false
   
   async function handleSetCategoria(categoria:CategoriaProps){ 
     try{
@@ -75,7 +75,7 @@ export default function MainUser() {
 
       <FlatList 
         data={products}
-        renderItem={ ({item}) => < ListProducts product={item} changeProduct={changeProduct} /> } 
+        renderItem={ ({item}) => < ListProducts product={item} isAdm={false}  changeProduct={changeProduct} /> } 
         keyExtractor={item => item.id} 
         />
       
