@@ -12,12 +12,12 @@ export default function ButtonsState( { changeState }:ButtonStateProps) {
     <>
     <View className=' flex-row p-6  items-center justify-between '>
       <Text className='text-center'>Escolha um Estado </Text> 
-      <TouchableOpacity className=' ml-4 bg-teal-700 w-22 h-10 rounded ' onPress={() => changeState('sao paulo') } >
-            <Text  className='text-center p-3  text-white'>Sao Paulo</Text>
+      <TouchableOpacity className='  bg-teal-700 w-14 h-10 rounded ' onPress={() => changeState('sao paulo') } >
+            <Text  className='text-center p-3  text-white'>SP</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity className=' ml-2 bg-teal-700 w-20 h-10 rounded' onPress={() =>  changeState('santa catarina')} >
-            <Text  className='text-center p-3  text-white'>Santa Catarina</Text>
+          <TouchableOpacity className='  bg-teal-700 w-14 h-10 rounded' onPress={() =>  changeState('santa catarina')} >
+            <Text  className='text-center p-3 text-xs text-white'>SC</Text>
           </TouchableOpacity>
           
     </View>

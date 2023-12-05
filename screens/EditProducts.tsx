@@ -66,7 +66,7 @@ export default function EditProducts() {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    className="bg-gray-200 w-70 rounded-md mb-1 h-6"
+                    className="bg-gray-200 w-70 rounded-md mb-1 h-6 p-2"
                     placeholder={product.nome}
                     onBlur={onBlur}
                     onChangeText={(value) => onChange(value)}
@@ -85,7 +85,7 @@ export default function EditProducts() {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    className="bg-gray-200 w-70 rounded-md mb-1 h-6"
+                    className="bg-gray-200 w-70 rounded-md mb-1 h-6 p-2"
                     placeholder={product.genero ? product.genero : product.marca }
                     onBlur={onBlur}
                     onChangeText={(value) => onChange(value)}
@@ -104,7 +104,7 @@ export default function EditProducts() {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    className="bg-gray-200 w-70 rounded-md mb-1 h-6"
+                    className="bg-gray-200 w-70 rounded-md mb-1 h-6 p-2"
                     placeholder={`${product.preco}`}
                     onBlur={onBlur}
                     onChangeText={(value) => onChange(value)}

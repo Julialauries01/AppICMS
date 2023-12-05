@@ -97,7 +97,7 @@ export default function InsertProducts() {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput 
-                      className='bg-gray-200 w-70 rounded-md mb-1 h-6'
+                      className='bg-gray-200 w-70 rounded-md mb-1 h-6 p-2'
                       placeholder='Digite o nome'
                       onBlur={onBlur}
                       onChangeText={value => onChange(value)}
@@ -116,7 +116,7 @@ export default function InsertProducts() {
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput 
-                      className='bg-gray-200 w-70 rounded-md mb-1 h-6'
+                      className='bg-gray-200 w-70 rounded-md mb-1 h-6 p-2'
                       placeholder='Digite o Tipo'
                       onBlur={onBlur}
                       onChangeText={value => onChange(value)}
@@ -127,7 +127,7 @@ export default function InsertProducts() {
               />
 
 
-        <Text className='text-teal-700 mb-2'>Preco:</Text>
+        <Text className='text-teal-700 mb-2 '>Preco:</Text>
 
         <Controller
           control={control}
@@ -136,7 +136,7 @@ export default function InsertProducts() {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput 
-                className='bg-gray-200 w-70 rounded-md mb-1 h-6'
+                className='bg-gray-200 w-70 rounded-md mb-1 h-6 p-2'
                 placeholder='Digite o preco'
                 onBlur={onBlur}
                 onChangeText={value => onChange(value)}
