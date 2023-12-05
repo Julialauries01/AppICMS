@@ -35,7 +35,7 @@ export default function InsertProducts() {
 
       try {
           const res = await handleSetInsertNewProduct(body).then(res => console.log(res))
-          console.log('inseriu a bagaca')
+          console.log('inseriu o body')
           navigation.navigate('MainAdm')
 
       }
