@@ -26,14 +26,14 @@ export default  function ConteinerResume({ product, imposto}: ContainerResumePro
     }
    }
    fetch()
-  }, [product.categoria,imposto]) 
+  }, [product,imposto]) 
   
   return (
 
     <View className='p-3 flex items-center m-6 bg-white rounded-md shadow-md'>
       <Text className='text-teal-700 text-center '>Resumo</Text> 
       <View className=' w-full h-28 flex items-start	'>
-      <Text className='text-center text-start mt-3'>Nome: {teste && teste.nome}</Text> 
+      <Text className=' text-start mt-3'>Nome: {teste && teste.nome}</Text> 
       <Text className='text-center mt-4'>{teste?.marca ? 'Marca:' : 'Genero:'} {teste?.marca} {teste?.genero}</Text> 
             <View className=' w-full h-28 flex items-start justify-between  flex-row'>
 

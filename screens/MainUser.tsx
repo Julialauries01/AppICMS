@@ -29,9 +29,10 @@ export default function MainUser() {
   }
 
   function changeProduct(id:string){
-    const product = products.filter(item => item.id === id)
+    console.log(id)
+    const product = products.find(item => item.id === id)
     if(product){
-      setProduct(product[0])
+      setProduct(product)
     }
   }
 
