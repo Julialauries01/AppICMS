@@ -71,12 +71,12 @@ export default function MainAdm() {
     <Text className='ml-6 text-black ' >Você selecionou a categoria { categoria }</Text>
 
 
-
-
       <FlatList 
         data={products}
         renderItem={ ({item}) => < ListProducts product={item} isAdm={true}  changeProduct={handleSetProduct} /> } 
         keyExtractor={item => item.id} 
+        showsVerticalScrollIndicator
+        className='flex flex-1  mb-40 h-screen'
         />
     </View>
   )

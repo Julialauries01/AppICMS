@@ -76,7 +76,7 @@ export default function EditProducts() {
                 name="nome"
               />
 
-              <Text className="text-teal-700 mb-2">Gênero:</Text>
+              <Text className="text-teal-700 mb-2">{product.genero ? 'Genero' : 'Marca'}</Text>
 
               <Controller
                 control={control}
@@ -86,7 +86,7 @@ export default function EditProducts() {
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
                     className="bg-gray-200 w-70 rounded-md mb-1 h-6"
-                    placeholder={product.genero}
+                    placeholder={product.genero ? product.genero : product.marca }
                     onBlur={onBlur}
                     onChangeText={(value) => onChange(value)}
                     value={value}

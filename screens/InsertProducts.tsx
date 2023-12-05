@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Button, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller ,SubmitHandler} from 'react-hook-form'
 import server from '../api/server'
@@ -44,7 +44,7 @@ export default function InsertProducts() {
       }
     
     } else{
-      return console.log('Escolha uma categoria!!')
+      return Alert.alert('Escolha uma categoria!')
     }
 
 

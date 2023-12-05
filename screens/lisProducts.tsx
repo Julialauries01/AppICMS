@@ -66,12 +66,12 @@ export default function ListProducts({
 }
 </View>
 
-            <View className=" items-start flex-row"  >
+            <View className="w-full justify-between  flex-row"  >
 
               <Text className="mt-6 w-30">
                 {product.genero ? product.genero : product.marca}
               </Text>
-              <Text className=" mt-6 ml-52  w-30">R${product.preco}</Text>
+              <Text className=" mt-6  w-30">R${product.preco}</Text>
             </View>
             </View>
             </View>

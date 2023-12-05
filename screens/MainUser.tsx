@@ -77,6 +77,8 @@ export default function MainUser() {
         data={products}
         renderItem={ ({item}) => < ListProducts product={item} isAdm={false}  changeProduct={changeProduct} /> } 
         keyExtractor={item => item.id} 
+        showsVerticalScrollIndicator
+        className='flex flex-1  mb-40 h-screen'
         />
       
     </View>
